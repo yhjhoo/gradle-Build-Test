@@ -1,0 +1,29 @@
+allprojects {
+  task hello << { task -> println "I'm $task.project.name" }
+}
+
+subprojects {
+
+  apply plugin: "java"
+ 
+  repositories {
+    mavenCentral()
+  }
+
+  dependencies {
+     testCompile "junit:junit:4+"
+  }
+}
+
+
+//it's not recommend 
+project(':api') {
+}
+
+//Common Project specific stuff
+project(':common') {
+}
+
+//App Project specific stuff
+project(':app') {
+}
